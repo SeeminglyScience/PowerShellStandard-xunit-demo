@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Configurations>Debug;Release;Test</Configurations>
+  </PropertyGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)' != 'Test' ">
+      <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="PowerShellStandard.Library" Version="5.1.0-preview-04" PrivateAssets="All" />
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)' == 'Test' ">
+      <PropertyGroup>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+      </PropertyGroup>
+      <ItemGroup>
+        <PackageReference Include="Microsoft.PowerShell.SDK" Version="6.0.2" PrivateAssets="All" />
+      </ItemGroup>
+    </When>
+  </Choose>
+</Project>
